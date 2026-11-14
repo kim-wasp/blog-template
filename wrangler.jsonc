@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers(정적 파일) 설정: build.py가 만든 dist/ 폴더를 그대로 띄워요
+  "name": "my-blog"  // 저장소 이름과 같게 (Cloudflare Worker 이름),
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

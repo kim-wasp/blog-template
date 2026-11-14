@@ -1,0 +1,19 @@
+# 내 블로그 설정 (이 파일만 바꾸면 이름, 소개, 분류, 광고가 바뀌어요)
+name: 내 블로그
+tagline: 블로그를 한 줄로 소개해요
+description: 이 블로그가 무엇을 다루는지 두세 문장으로 적어요. 검색 결과와 첫 화면에 보여요.
+url: https://내도메인.com
+lang: ko
+author: 내 블로그 편집팀
+contact_email: ""          # 문의 받을 이메일
+per_page: 12
+categories:                # name: 화면에 보이는 이름, slug: 주소에 쓰는 영문
+  - {name: 분류1, slug: cat1}
+  - {name: 분류2, slug: cat2}
+  - {name: 분류3, slug: cat3}
+verification:              # 검색엔진 소유 확인 태그의 content 값 (공개 값이라 여기 둬도 돼요)
+  google: ""
+  naver: ""
+  bing: ""
+ads:
+  adsense_client: ""       # 애드센스 게시자 ID ca-pub-... (비어 있으면 광고 코드 없음)
