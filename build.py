@@ -39,9 +39,14 @@ def esc(s):
     return html.escape(str(s or ""), quote=True)
 
 
+def sig_plain(text):
+    """판정표·법안 단계 블록(스튜디오가 넣은 것)은 사이트 디자인(토큰)으로 보이게 인라인 스타일을 빼요"""
+    return re.sub(r'^(<div class="sig-[^\n]*)$', lambda m: re.sub(r' style="[^"]*"', "", m.group(1)), text or "", flags=re.M)
+
+
 def md_html(text):
     md = markdown.Markdown(extensions=["tables", "sane_lists"])
-    h = md.convert(text or "")
+    h = md.convert(sig_plain(text))
     h = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener nofollow"', h)
     h = re.sub(r"<img ", '<img loading="lazy" ', h)
     return h.replace("<table>", '<div class="tw"><table>').replace("</table>", "</table></div>")
@@ -156,7 +161,8 @@ def write(path, text):
 # ---------- 페이지 ----------
 WAYS = [("결론부터", "첫 줄에 한 줄 결론. 바쁘면 거기까지만 읽어도 돼요."),
         ("쉬운 말로", "법안 이름, 숫자, 절차를 처음 보는 사람도 알게 풀어요."),
-        ("양쪽 다", "갈리는 쟁점은 각 입장의 가장 센 근거를 나란히 놓아요."),
+        ("판정표", "쟁점마다 양쪽 주장과 확인된 사실을 나란히 놓고, 사실·일부 사실·의견으로 갈라 적어요."),
+        ("법안은 어디까지", "법안 글에는 발의부터 공포까지 지금 몇 단계인지 표시해요."),
         ("출처는 끝까지", "숫자와 발언은 원문을 확인하고, 글 끝에 링크를 남겨요.")]
 
 

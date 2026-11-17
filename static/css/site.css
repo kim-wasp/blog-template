@@ -148,3 +148,22 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
 .flow a { text-decoration: underline; text-decoration-color: var(--color-rule); text-underline-offset: 0.2em; }
 .flow a:hover { color: var(--color-accent); text-decoration-color: currentColor; }
 .flow .meta { color: var(--color-muted); font-size: var(--text-sm); }
+
+/* 판정표·법안 단계 (2026-11-17, 사이트 고정 형식): 모래색 우물(.well)과 같은 재료, 모서리 없음 */
+.sig-verdict, .sig-bill { margin: var(--space-xl) 0; border-top: var(--rule-ink) solid var(--color-rule-ink); background: var(--color-paper-2); }
+.sig-verdict .sig-title, .sig-bill .sig-title { margin: 0; padding: var(--space-md) var(--space-lg) var(--space-sm); font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--text-lg); line-height: 1.45; max-width: none; }
+.sig-row { padding: var(--space-md) var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.sig-row p { margin: 0; max-width: none; }
+.sig-who { font-size: var(--text-sm); color: var(--color-muted); }
+.sig-claim { margin-top: var(--space-2xs) !important; font-size: var(--text-md); }
+.sig-check { margin-top: var(--space-xs) !important; font-size: var(--text-sm); color: var(--color-ink-2); }
+.sig-status { display: inline-block; margin-right: var(--space-xs); padding: 0 var(--space-xs); border: var(--rule-hair) solid currentColor; font-size: var(--text-xs); font-weight: 600; }
+.sig-s_true { color: var(--color-success); } .sig-s_false { color: var(--color-error); } .sig-s_part { color: var(--color-partial); } .sig-s_open, .sig-s_opinion { color: var(--color-muted); }
+.sig-note { margin: 0; padding: var(--space-sm) var(--space-lg) var(--space-md); font-size: var(--text-sm); color: var(--color-muted); max-width: none; }
+.sig-bill { padding-bottom: var(--space-sm); }
+.sig-steps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-2xs); list-style: none; margin: 0; padding: var(--space-xs) var(--space-lg); }
+.sig-steps > .sig-step { margin: 0; }
+.sig-step { padding-top: var(--space-xs); border-top: 3px solid var(--color-rule); font-size: var(--text-xs); color: var(--color-muted); text-align: center; min-width: 0; overflow-wrap: break-word; }
+.sig-step.is-done { border-top-color: var(--color-accent); }
+.sig-step.is-now { color: var(--color-ink); font-weight: 700; }
+@media (max-width: 640px) { .sig-row, .sig-verdict .sig-title, .sig-bill .sig-title, .sig-note { padding-left: var(--space-md); padding-right: var(--space-md); } .sig-steps { padding: var(--space-xs) var(--space-md); } }
